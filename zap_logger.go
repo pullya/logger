@@ -37,7 +37,7 @@ func init() {
 	}
 
 	zap.ReplaceGlobals(logger)
-	defaultLogger.zapLogger = withDefaultFields(logger.Sugar(), nil)
+	defaultLogger = &ZapLogger{zapLogger: withDefaultFields(logger.Sugar(), nil)}
 }
 
 func SetLevel(l zapcore.Level) {
